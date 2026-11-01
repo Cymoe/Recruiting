@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>See If You Qualify | {brand}</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/config.js"></script>
+  <script src="assets/funnel.js" defer></script>
+</head>
+<body class="funnel-page">
+  <div class="funnel-card">
+    <div class="progress"><div class="progress-bar"></div></div>
+
+    <form id="apply-form" novalidate>
+      <!-- 1. Trade -->
+      <div class="step">
+        <span class="eyebrow">Step 1</span>
+        <h2>What type of home service company do you run?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="trade" value="HVAC"> HVAC</label>
+          <label class="option"><input type="radio" name="trade" value="Roofing"> Roofing</label>
+          <label class="option"><input type="radio" name="trade" value="Solar"> Solar</label>
+          <label class="option"><input type="radio" name="trade" value="Plumbing"> Plumbing</label>
+          <label class="option"><input type="radio" name="trade" value="Windows / Doors / Siding"> Windows / Doors / Siding</label>
+          <label class="option"><input type="radio" name="trade" value="Bath / Kitchen / Remodeling"> Bath / Kitchen / Remodeling</label>
+          <label class="option"><input type="radio" name="trade" value="Other"> Other home service</label>
+        </div>
+      </div>
+
+      <!-- 2. Revenue -->
+      <div class="step">
+        <span class="eyebrow">Step 2</span>
+        <h2>What's your annual revenue?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="revenue" value="Under $500K"> Under $500K</label>
+          <label class="option"><input type="radio" name="revenue" value="$500K–$1M"> $500K–$1M</label>
+          <label class="option"><input type="radio" name="revenue" value="$1M–$3M"> $1M–$3M</label>
+          <label class="option"><input type="radio" name="revenue" value="$3M–$10M"> $3M–$10M</label>
+          <label class="option"><input type="radio" name="revenue" value="$10M+"> $10M+</label>
+        </div>
+      </div>
+
+      <!-- 3. Roles -->
+      <div class="step">
+        <span class="eyebrow">Step 3</span>
+        <h2>Which roles are you hiring for?</h2>
+        <p class="muted">Select all that apply.</p>
+        <div class="options">
+          <label class="option"><input type="checkbox" data-group name="roles" value="In-home sales / closer"> In-home sales consultant / closer</label>
+          <label class="option"><input type="checkbox" data-group name="roles" value="Canvasser / setter"> Canvasser / appointment setter</label>
+          <label class="option"><input type="checkbox" data-group name="roles" value="Sales manager"> Sales manager</label>
+          <label class="option"><input type="checkbox" data-group name="roles" value="Inside sales / CSR"> Inside sales / CSR</label>
+        </div>
+      </div>
+
+      <!-- 4. Headcount -->
+      <div class="step">
+        <span class="eyebrow">Step 4</span>
+        <h2>How many sales reps do you want to hire?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="headcount" value="1"> 1</label>
+          <label class="option"><input type="radio" name="headcount" value="2–3"> 2–3</label>
+          <label class="option"><input type="radio" name="headcount" value="4–6"> 4–6</label>
+          <label class="option"><input type="radio" name="headcount" value="7+"> 7+</label>
+        </div>
+      </div>
+
+      <!-- 5. Timeline -->
+      <div class="step">
+        <span class="eyebrow">Step 5</span>
+        <h2>When do you need them in the field?</h2>
+        <div class="options">
+          <label class="option"><input type="radio" name="timeline" value="ASAP"> ASAP, we're leaving money on the table</label>
+          <label class="option"><input type="radio" name="timeline" value="Within 30 days"> Within 30 days</label>
+          <label class="option"><input type="radio" name="timeline" value="1–3 months"> 1–3 months</label>
+          <label class="option"><input type="radio" name="timeline" value="Just researching"> Just researching for now</label>
+        </div>
+      </div>
+
+      <!-- 6. Challenge -->
+      <div class="step">
+        <span class="eyebrow">Step 6</span>
+        <h2>What's your biggest sales hiring challenge right now?</h2>
+        <div class="field" style="margin-top:20px">
+          <textarea name="challenge" rows="4" placeholder="e.g. We get plenty of applicants but none can close, or our reps keep quitting after training…"></textarea>
+        </div>
+        <p class="muted" style="font-size:.9rem">Optional, but it helps us prepare for your call.</p>
+      </div>
+
+      <!-- 7. Contact -->
+      <div class="step">
+        <span class="eyebrow">Last step</span>
+        <h2>Where should we send your call details?</h2>
+        <div class="row-2" style="margin-top:20px">
+          <div class="field"><label for="fn">First name</label><input id="fn" name="first_name" autocomplete="given-name" required data-label="your first name"></div>
+          <div class="field"><label for="ln">Last name</label><input id="ln" name="last_name" autocomplete="family-name" required data-label="your last name"></div>
+        </div>
+        <div class="field"><label for="co">Company name</label><input id="co" name="company" autocomplete="organization" required data-label="your company name"></div>
+        <div class="row-2">
+          <div class="field"><label for="em">Email</label><input id="em" type="email" name="email" autocomplete="email" required data-label="email address"></div>
+          <div class="field"><label for="ph">Mobile phone</label><input id="ph" type="tel" name="phone" autocomplete="tel" required pattern="[\d\s()+.\-]{7,}" data-label="phone number"></div>
+        </div>
+        <div class="field"><label for="ci">City / service area</label><input id="ci" name="service_area" autocomplete="address-level2" placeholder="e.g. Phoenix, AZ"></div>
+        <p class="consent">By submitting, you agree to be contacted by phone, text, or email about your hiring needs. Message and data rates may apply. Reply STOP to opt out.</p>
+      </div>
+
+      <div class="error" id="form-error" role="alert"></div>
+      <div class="step-nav">
+        <button type="button" class="btn btn-ghost" id="back">← Back</button>
+        <button type="button" class="btn" id="next">Continue →</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
