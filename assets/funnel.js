@@ -193,6 +193,24 @@
       var hi = document.getElementById("hello-name");
       if (hi) hi.textContent = ", " + lead.first_name;
     }
+    // Calendar widget pasted directly into book.html (e.g. iClosed's embed code):
+    // leave it untouched and only add a backup button in case it never renders.
+    var pasted = holder.querySelector(".iclosed-widget");
+    if (pasted) {
+      setTimeout(function () {
+        if (holder.querySelector("iframe")) return;
+        var link = pasted.getAttribute("data-url");
+        var b = document.createElement("div");
+        b.className = "card center";
+        b.style.padding = "40px 28px";
+        b.innerHTML = '<h2 style="font-size:1.5rem">Calendar not showing?</h2>' +
+          '<p class="muted">Tap below to open our scheduling page.</p>' +
+          '<a class="btn" href="' + esc(link) + '">Pick Your Time →</a>';
+        b.querySelector("a").addEventListener("click", function () { track("ClickBook"); });
+        holder.appendChild(b);
+      }, 8000);
+      return;
+    }
     if (!C.calendarUrl) {
       holder.innerHTML = '<div class="notice"><strong>Calendar not connected yet.</strong> Set <code>calendarUrl</code> in <code>assets/config.js</code> to your Calendly or Cal.com booking link.</div>';
       return;
