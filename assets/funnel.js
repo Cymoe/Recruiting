@@ -209,11 +209,44 @@
       if (lead.company) url.searchParams.set("a1", lead.company);
       if (lead.phone) url.searchParams.set("location", lead.phone);
     }
-    var f = document.createElement("iframe");
-    f.className = "calendar-embed";
-    f.src = url.toString();
-    f.title = "Book your call";
-    holder.appendChild(f);
+    if (/(^|\.)iclosed\.io$/.test(url.hostname)) {
+      // iClosed's official inline widget: a div with data-url plus their loader script.
+      if (lead.phone) url.searchParams.set("phone", lead.phone);
+      var w = document.createElement("div");
+      w.className = "iclosed-widget";
+      w.setAttribute("data-url", url.toString());
+      w.setAttribute("title", "Book your call");
+      w.style.width = "100%";
+      w.style.height = "720px";
+      holder.appendChild(w);
+      var sc = document.createElement("script");
+      sc.src = "https://app.iclosed.io/assets/widget.js";
+      sc.async = true;
+      document.body.appendChild(sc);
+
+      // Fallback: if iClosed's widget hasn't rendered an iframe (script blocked,
+      // CDN outage, ad blocker), give the lead a one-click path to the booking page.
+      var showFallback = function () {
+        if (holder.querySelector("iframe")) return;
+        w.remove();
+        holder.innerHTML =
+          '<div class="card center" style="padding:48px 28px">' +
+          '<h2 style="font-size:1.6rem">Choose a time for your free audit</h2>' +
+          '<p class="muted">Opens our scheduling page. It takes about 30 seconds.</p>' +
+          '<a class="btn" id="book-btn" href="' + esc(url.toString()) + '">Pick Your Time →</a>' +
+          "</div>";
+        var bb = document.getElementById("book-btn");
+        if (bb) bb.addEventListener("click", function () { track("ClickBook"); });
+      };
+      sc.onerror = showFallback;
+      setTimeout(showFallback, 6000);
+    } else {
+      var f = document.createElement("iframe");
+      f.className = "calendar-embed";
+      f.src = url.toString();
+      f.title = "Book your call";
+      holder.appendChild(f);
+    }
 
     // Redirect to thank-you once booked (Calendly & Cal.com both postMessage).
     window.addEventListener("message", function (e) {

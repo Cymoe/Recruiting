@@ -14,7 +14,7 @@ index.html  ──►  apply.html  ──►  book.html  ──►  thank-you.ht
 1. **Landing page** (`index.html`): pain points, how it works, offer, fit check, FAQ, and CTAs.
 2. **Application** (`apply.html`): a one-question-per-screen qualifier covering trade, revenue, roles, headcount, timeline, biggest challenge, and contact details. Radio answers auto-advance.
 3. **Qualification**: leads that match `disqualify` rules in config go to a polite "not a fit yet" page. Everyone else goes to the calendar.
-4. **Booking** (`book.html`): embeds your Calendly or Cal.com page with name and email already filled in. On booking it redirects to the thank-you page.
+4. **Booking** (`book.html`): embeds your iClosed, Calendly, or Cal.com calendar, passing the lead's name, email, and phone along. If the iClosed widget fails to load, it shows a "Pick Your Time" button that opens your iClosed booking page instead. Set iClosed's post-booking redirect to `/thank-you.html`.
 5. **Thank-you** (`thank-you.html`): call prep to improve show rates.
 
 Every submission, qualified or not, is POSTed as JSON to your webhook. The payload includes UTM parameters, `fbclid` and `gclid`, the landing page, and the referrer.
@@ -26,7 +26,7 @@ All settings live in **`assets/config.js`**:
 | Setting | What to put there |
 |---|---|
 | `brand.name`, `brand.email`, `brand.phone` | Your agency details |
-| `calendarUrl` | Your Calendly or Cal.com event link, e.g. `https://calendly.com/you/strategy-call` |
+| `calendarUrl` | Your iClosed, Calendly, or Cal.com event link, e.g. `https://app.iclosed.io/e/you/audit` |
 | `leadWebhookUrl` | A Zapier, Make, n8n, or GoHighLevel inbound webhook, or any endpoint that accepts a POST. Leads are sent as a JSON body with content type `text/plain`, so no CORS setup is needed. |
 | `metaPixelId` / `googleAnalyticsId` | Optional. Fires `PageView`, `StartApplication`, `Lead`, and `Schedule` events. |
 | `disqualify` | Answers that send leads to the not-a-fit page. By default: revenue under $500K, or "just researching". |

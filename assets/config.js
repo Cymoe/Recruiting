@@ -10,10 +10,11 @@ window.FUNNEL_CONFIG = {
     email: "hello@example.com",
   },
 
-  // Booking calendar. Paste your Calendly (or Cal.com) event URL.
+  // Booking calendar. Paste your iClosed, Calendly, or Cal.com event URL.
+  // iClosed:  https://app.iclosed.io/e/your-name/your-event
   // Calendly: https://calendly.com/your-name/strategy-call
   // Cal.com:  https://cal.com/your-name/strategy-call
-  calendarUrl: "",
+  calendarUrl: "https://app.iclosed.io/e/Cymoe/audit",
 
   // Where application answers are POSTed as JSON (Zapier/Make/n8n webhook,
   // GoHighLevel inbound webhook, your CRM, etc.). Leave blank to skip.
