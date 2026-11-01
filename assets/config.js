@@ -3,8 +3,8 @@
  */
 window.FUNNEL_CONFIG = {
   brand: {
-    first: "REPFORCE",    // logo, first word (white)
-    second: "RECRUITING", // logo, second word (accent color)
+    name: "National Sales Registry",
+    short: "NSR",
     email: "hello@example.com",
   },
 

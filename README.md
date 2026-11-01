@@ -1,4 +1,4 @@
-# Home Service Sales Recruiting Funnel
+# National Sales Registry: Recruiting Funnel
 
 A one-page video funnel built for paid ads. It books recruiting audits with home service company owners (HVAC, roofing, solar, plumbing, remodeling) who need to hire sales reps.
 
@@ -16,7 +16,7 @@ Edit **`assets/config.js`**:
 
 | Setting | What to put there |
 |---|---|
-| `brand.first` / `brand.second` | The two words of the logo (white, then blue) |
+| `brand.name` | Firm name shown in the wordmark and footer |
 | `brand.email` | Contact email in the footer |
 | `videoUrl` | A YouTube, Vimeo, Wistia, or `.mp4` link to your video |
 | `metaPixelId` / `googleAnalyticsId` | Optional ad tracking: `PageView`, `ClickCTA`, `VideoUnmute`, `Schedule` |
@@ -25,7 +25,7 @@ Edit **`assets/config.js`**:
 
 **In iClosed:** set the event's post-booking redirect to `https://YOUR-DOMAIN/thank-you.html`.
 
-**Copy and colors:** edit the text in `index.html`. Colors are CSS variables at the top of `assets/styles.css` (`--accent`).
+**Copy and colors:** edit the text in `index.html`. Colors (navy, brass, cream) are CSS variables at the top of `assets/styles.css`. The seal is an inline SVG in each page.
 
 ## Run locally
 

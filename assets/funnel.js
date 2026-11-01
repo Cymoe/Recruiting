@@ -113,8 +113,8 @@
       widget.style.display = "none"; // collapse the empty 620px box
       var b = document.createElement("div");
       b.className = "fallback";
-      b.innerHTML = "<p>Calendar not showing?</p>" +
-        '<a class="btn" href="' + esc(widget.getAttribute("data-url")) + '">Open The Calendar →</a>';
+      b.innerHTML = "<p>Calendar not showing? Open it here.</p>" +
+        '<a class="btn" href="' + esc(widget.getAttribute("data-url")) + '">Open The Calendar</a>';
       b.querySelector("a").addEventListener("click", function () { track("ClickBook"); });
       holder.appendChild(b);
     }, 8000);
