@@ -1,41 +1,22 @@
 /**
- * FUNNEL CONFIG — edit this file to make the funnel yours.
- * Everything brand/integration-specific lives here.
+ * FUNNEL CONFIG: edit this file to make the funnel yours.
  */
 window.FUNNEL_CONFIG = {
   brand: {
-    name: "RepForce Recruiting",          // Your agency name
-    tagline: "Sales hiring for home service companies",
-    phone: "",                            // e.g. "(555) 123-4567" — leave blank to hide
+    first: "REPFORCE",    // logo, first word (white)
+    second: "RECRUITING", // logo, second word (accent color)
     email: "hello@example.com",
   },
 
-  // Booking calendar. Paste your iClosed, Calendly, or Cal.com event URL.
-  // iClosed:  https://app.iclosed.io/e/your-name/your-event
-  // Calendly: https://calendly.com/your-name/strategy-call
-  // Cal.com:  https://cal.com/your-name/strategy-call
-  calendarUrl: "https://app.iclosed.io/e/Cymoe/audit",
+  // Your sales video. Paste a link from any of these:
+  //   YouTube:  https://www.youtube.com/watch?v=XXXXXXXXXXX
+  //   Vimeo:    https://vimeo.com/123456789
+  //   Wistia:   https://yourname.wistia.com/medias/abc123xyz
+  //   MP4 file: https://yourdomain.com/video.mp4
+  // Leave blank to show a placeholder.
+  videoUrl: "",
 
-  // Where application answers are POSTed as JSON (Zapier/Make/n8n webhook,
-  // GoHighLevel inbound webhook, your CRM, etc.). Leave blank to skip.
-  leadWebhookUrl: "",
-
-  // Optional analytics. Leave blank to disable.
+  // Optional ad tracking. Leave blank to disable.
   metaPixelId: "",
-  googleAnalyticsId: "",                  // e.g. "G-XXXXXXX"
-
-  // Qualification: applicants matching ANY of these go to a polite
-  // "not a fit yet" page instead of the calendar.
-  disqualify: {
-    revenue: ["Under $500K"],
-    timeline: ["Just researching"],
-  },
-
-  // Social proof — replace with REAL results only. Empty arrays hide the section.
-  stats: [
-    // { value: "120+", label: "Reps placed" },
-  ],
-  testimonials: [
-    // { quote: "…", name: "Jane Doe", company: "Doe Roofing, Dallas TX" },
-  ],
+  googleAnalyticsId: "", // e.g. "G-XXXXXXX"
 };

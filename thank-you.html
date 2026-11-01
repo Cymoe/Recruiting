@@ -3,29 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>You're Booked | {brand}</title>
+  <title>You're Booked</title>
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#070d18">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Oswald:wght@700&family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/config.js"></script>
   <script src="assets/funnel.js" defer></script>
+  <script>document.addEventListener("DOMContentLoaded",function(){try{window.fbq&&fbq("track","Schedule");window.gtag&&gtag("event","Schedule")}catch(e){}});</script>
 </head>
-<body class="funnel-page">
-  <div class="funnel-card">
-    <span class="eyebrow">✓ Confirmed</span>
-    <h1 style="font-size:2rem">You're booked. Here's how to get the most from your call</h1>
-    <p class="muted">A calendar invite is on its way to your inbox.</p>
-    <div class="card" style="box-shadow:none;margin-top:24px">
+<body>
+  <main class="wrap center">
+    <div class="logo"><span data-brand="first">REPFORCE</span> <span class="b" data-brand="second">RECRUITING</span></div>
+    <span class="step-tag">✓ Confirmed</span>
+    <h1>You're Booked. <span class="hl">Here's How To Prepare.</span></h1>
+    <p class="sub">A calendar invite is on its way to your inbox.</p>
+    <div class="card">
       <ul class="checks">
         <li><strong>Accept the calendar invite</strong> so it's locked in.</li>
         <li><strong>Have your comp plan handy</strong>: base, commission, and what your top rep earned last year.</li>
         <li><strong>Know your lead flow</strong>: roughly how many appointments a rep could run per week.</li>
-        <li><strong>Bring your decision-maker</strong>. If a partner is involved in hiring, invite them.</li>
+        <li><strong>Bring your decision-maker.</strong> If a partner is involved in hiring, invite them.</li>
       </ul>
     </div>
-    <p class="muted" style="margin-top:24px">Need to reschedule? Use the link in your confirmation email, or reach us at <a data-brand-email href="#"></a>.</p>
-    <a class="btn btn-sm" href="index.html" style="margin-top:8px">Back to home</a>
-  </div>
+  </main>
+  <footer class="wrap"><a data-brand-email href="#"></a></footer>
 </body>
 </html>

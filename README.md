@@ -1,52 +1,38 @@
-# Sales Recruiting Funnel for Home Service Companies
+# Home Service Sales Recruiting Funnel
 
-A lightweight, no-build-step funnel that books strategy calls with **home service business owners** (HVAC, roofing, solar, plumbing, remodeling, and others) who need to **hire sales reps**.
-
-## Funnel flow
+A one-page video funnel built for paid ads. It books recruiting audits with home service company owners (HVAC, roofing, solar, plumbing, remodeling) who need to hire sales reps.
 
 ```
-index.html  ──►  apply.html  ──►  book.html  ──►  thank-you.html
- (landing)      (7-step qualifier)   (calendar)       (confirmation)
-                      │
-                      └──► not-a-fit.html   (disqualified leads)
+Ad  ──►  index.html  ──►  iClosed booking  ──►  thank-you.html
+         (headline + video + calendar)
 ```
 
-1. **Landing page** (`index.html`): pain points, how it works, offer, fit check, FAQ, and CTAs.
-2. **Application** (`apply.html`): a one-question-per-screen qualifier covering trade, revenue, roles, headcount, timeline, biggest challenge, and contact details. Radio answers auto-advance.
-3. **Qualification**: leads that match `disqualify` rules in config go to a polite "not a fit yet" page. Everyone else goes to the calendar.
-4. **Booking** (`book.html`): embeds your iClosed, Calendly, or Cal.com calendar, passing the lead's name, email, and phone along. If the iClosed widget fails to load, it shows a "Pick Your Time" button that opens your iClosed booking page instead. Set iClosed's post-booking redirect to `/thank-you.html`.
-5. **Thank-you** (`thank-you.html`): call prep to improve show rates.
+- **`index.html`**: logo, headline, a video that autoplays muted with a "Click To Unmute" overlay, a call-to-action button, three proof points, and the iClosed calendar.
+- **`thank-you.html`**: booking confirmation and call prep. It fires a `Schedule` conversion event when the pixel is set.
 
-Every submission, qualified or not, is POSTed as JSON to your webhook. The payload includes UTM parameters, `fbclid` and `gclid`, the landing page, and the referrer.
+## Setup
 
-## Setup (about 5 minutes)
-
-All settings live in **`assets/config.js`**:
+Edit **`assets/config.js`**:
 
 | Setting | What to put there |
 |---|---|
-| `brand.name`, `brand.email`, `brand.phone` | Your agency details |
-| `calendarUrl` | Your iClosed, Calendly, or Cal.com event link, e.g. `https://app.iclosed.io/e/you/audit` |
-| `leadWebhookUrl` | A Zapier, Make, n8n, or GoHighLevel inbound webhook, or any endpoint that accepts a POST. Leads are sent as a JSON body with content type `text/plain`, so no CORS setup is needed. |
-| `metaPixelId` / `googleAnalyticsId` | Optional. Fires `PageView`, `StartApplication`, `Lead`, and `Schedule` events. |
-| `disqualify` | Answers that send leads to the not-a-fit page. By default: revenue under $500K, or "just researching". |
-| `stats` / `testimonials` | **Real** results only. Each section stays hidden while its list is empty. |
+| `brand.first` / `brand.second` | The two words of the logo (white, then blue) |
+| `brand.email` | Contact email in the footer |
+| `videoUrl` | A YouTube, Vimeo, Wistia, or `.mp4` link to your video |
+| `metaPixelId` / `googleAnalyticsId` | Optional ad tracking: `PageView`, `ClickCTA`, `VideoUnmute`, `Schedule` |
 
-**Calendly tip:** in your event settings, also set *Confirmation page → Redirect to an external site* to `https://yourdomain.com/thank-you.html` as a backup redirect.
+**Calendar:** the iClosed embed code sits in `index.html` inside `<div id="calendar">`. To change calendars, replace that block. If the widget doesn't render within 8 seconds, the page shows an "Open The Calendar" button instead.
+
+**In iClosed:** set the event's post-booking redirect to `https://YOUR-DOMAIN/thank-you.html`.
+
+**Copy and colors:** edit the text in `index.html`. Colors are CSS variables at the top of `assets/styles.css` (`--accent`).
 
 ## Run locally
 
 ```bash
 python3 -m http.server 8000
-# open http://localhost:8000
 ```
 
 ## Deploy
 
-These are static files, so any host works. You can drag the folder into Netlify, import the repo in Vercel, turn on GitHub Pages for the branch, or upload to any web host.
-
-## Customizing
-
-- Copy lives directly in the HTML files.
-- Brand colors are CSS variables at the top of `assets/styles.css` (`--brand`, `--navy`).
-- To add or change application questions, edit the `.step` blocks in `apply.html`. Any `name="..."` field is included in the webhook payload automatically.
+The site is connected to Vercel, which redeploys on every push.
